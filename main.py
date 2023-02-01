@@ -17,7 +17,7 @@ blackfishX = 0
 blackfishY = 0
 
 def redrawGameWindow():
-
+# COMMENTS
 
     game_display.blit(blackfish, (blackfishX, blackfishY))
     game_display.blit(bg, (0, 0))
