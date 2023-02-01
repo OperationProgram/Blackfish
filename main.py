@@ -61,6 +61,7 @@ while run:
     keys = pygame.key.get_pressed()
 
     game_display.blit(crate, (0, 0))
+    game_display.fill((0, 0, 0))
     redrawGameWindow()
     if keys[pygame.K_LEFT]:
         blackfishX -= 1
