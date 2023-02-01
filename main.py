@@ -51,6 +51,8 @@ def redrawGameWindow():
 
     game_display.blit(blackfish, (blackfishX, blackfishY))
 
+# Set up the drawing window
+
 
 
 # Run until the user asks to quit
