@@ -18,13 +18,13 @@ grass = pygame.image.load(('art/tiles/grass.png'))
 blackfishX = 0
 blackfishY = 0
 
-def redrawGameWindow():
+def redrawGameWindow():######################################
 # COMMENTS
 
     game_display.blit(blackfish, (blackfishX, blackfishY))
     game_display.blit(bg, (0, 0))
 
-    gameBoard0 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    gameBoard0 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
