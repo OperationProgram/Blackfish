@@ -48,7 +48,7 @@ def redrawGameWindow():
 
 
 # Run until the user asks to quit
-FPS = 60 ##
+FPS = 60 ##TESTr
 clock = pygame.time.Clock()
 run = True
 while run:
