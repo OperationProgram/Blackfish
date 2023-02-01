@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (Blackfish)" project-jdk-type="Python SDK" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (Blackfish) (3)" project-jdk-type="Python SDK" />
+>>>>>>> 72756f9395d98ae222426c5cdfee8cee081e21b7
 </project>

@@ -4,7 +4,11 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="jdk" jdkName="Python 3.9 (Blackfish)" jdkType="Python SDK" />
+=======
+    <orderEntry type="inheritedJdk" />
+>>>>>>> 72756f9395d98ae222426c5cdfee8cee081e21b7
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
