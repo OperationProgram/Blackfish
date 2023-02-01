@@ -67,8 +67,10 @@ while run:
     elif keys[pygame.K_RIGHT]:
         blackfishX += 1
     elif keys[pygame.K_UP]:
+        pass
 
     elif keys[pygame.K_DOWN]:
+        pass
 
 # Done! Time to quit.
 pygame.quit()
