@@ -15,40 +15,55 @@ grass = pygame.image.load(('art/tiles/grass.png'))
 
 blackfishX = 0
 blackfishY = 0
-
+tileSet = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 def redrawGameWindow():
-# COMMENTS
+# COMMENTSddddddddd
 
     game_display.blit(blackfish, (blackfishX, blackfishY))
-    game_display.blit(bg, (0, 0))
 
-    gameBoard0 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    startX, startY = 0, 0
+    for i in tileSet:
+        print('hi)')
+        print(i)
+        if i == 0:
+            print(i)
+            game_display.blit(grass, (startX, startY))
+    else:
+        game_display.blit(bg, (100, 100))
 
+    gameBoard1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-    gameBoard1 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+def drawOnLayer():
+    startX, startY = 0, 0
+    for i in tileSet:
+        if i == 0:
+            game_display.blit(grass,(startX, startY))
+
 
 # Set up the drawing window
 
 
 
 # Run until the user asks to quit
-FPS = 60
+velocity = 4
+FPS = 60 ##TESTr 222
 clock = pygame.time.Clock()
 run = True
 while run:
@@ -61,15 +76,17 @@ while run:
     keys = pygame.key.get_pressed()
 
     game_display.blit(crate, (0, 0))
+    game_display.fill((0, 0, 0))
     redrawGameWindow()
-    if keys[pygame.K_LEFT]:
-        blackfishX -= 1
-    elif keys[pygame.K_RIGHT]:
-        blackfishX += 1
-    elif keys[pygame.K_UP]:
-        blackfishY -= 1
-    elif keys[pygame.K_DOWN]:
-        blackfishY += 1
+    drawOnLayer()
+    if keys[pygame.K_a]:
+        blackfishX -= velocity
+    elif keys[pygame.K_d]:
+        blackfishX += velocity
+    elif keys[pygame.K_w]:
+        blackfishY -= velocity ##
+    elif keys[pygame.K_s]:
+        blackfishY += velocity
     pygame.display.update()
 
 # Done! Time to quit.
