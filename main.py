@@ -1,4 +1,5 @@
 # Simple pygame program
+#TEST2222
 
 # Import and initialize the pygame library
 import pygame
@@ -15,15 +16,16 @@ grass = pygame.image.load(('art/tiles/grass.png'))
 
 blackfishX = 0
 blackfishY = 0
-tileSet = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+tileSet = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 def redrawGameWindow():
 # COMMENTSddddddddd
 
@@ -52,9 +54,11 @@ def redrawGameWindow():
 
 def drawOnLayer():
     startX, startY = 0, 0
-    for i in tileSet:
+    tile = 0
+    for i in tileSet[tile]:
         if i == 0:
             game_display.blit(grass,(startX, startY))
+
 
 
 # Set up the drawing window
@@ -89,5 +93,5 @@ while run:
         blackfishY += velocity
     pygame.display.update()
 
-# Done! Time to quit.
+# Done! Time 2to quit.
 pygame.quit()
