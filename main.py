@@ -2,28 +2,73 @@
 
 # Import and initialize the pygame library
 import pygame
+
+
 pygame.init()
 
+
+game_display = pygame.display.set_mode((800, 600))
+blackfish = pygame.image.load('art/blackfish.png')
+bg = pygame.image.load('art/tiles/brick.png')
+crate = pygame.image.load('art/tiles/crate.png')
+grass = pygame.image.load(('art/tiles/grass.png'))
+
+blackfishX = 0
+blackfishY = 0
+
+def redrawGameWindow():
+
+
+    game_display.blit(blackfish, (blackfishX, blackfishY))
+    game_display.blit(bg, (0, 0))
+
+    gameBoard0 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+
+    gameBoard1 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
 # Set up the drawing window
-screen = pygame.display.set_mode([500, 500])
+
+
 
 # Run until the user asks to quit
-running = True
-while running:
+FPS = 60
+clock = pygame.time.Clock()
+run = True
+while run:
+    clock.tick(FPS)
 
-    # Did the user click the window close button?
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            run = False
 
-    # Fill the background with white
-    screen.fill((255, 255, 255))
+    keys = pygame.key.get_pressed()
 
-    # Draw a solid blue circle in the center
-    pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
+    game_display.blit(crate, (0, 0))
 
-    # Flip the display
-    pygame.display.flip()
+    if keys[pygame.K_LEFT]:
+        blackfishX -= 1
+    elif keys[pygame.K_RIGHT]:
+        blackfishX += 1
+    elif keys[pygame.K_UP]:
+
+    elif keys[pygame.K_DOWN]:
 
 # Done! Time to quit.
 pygame.quit()
