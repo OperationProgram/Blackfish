@@ -26,7 +26,7 @@ tileSet = [   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
               [2, 0, 0, 0, 0, 0, 0, 0, 0, 2]]
 
-##### Changes only made to this function. ################
+##### Changes only made to this function. #################
 # You can change each block to whatever image you want in the tileSet matrix above.              
 
 def redrawGameWindow():
