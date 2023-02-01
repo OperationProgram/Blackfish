@@ -15,22 +15,22 @@ grass = pygame.image.load(('art/tiles/grass.png'))
 
 blackfishX = 0
 blackfishY = 0
-
+tileSet = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 def redrawGameWindow():
 # COMMENTS
 
     game_display.blit(blackfish, (blackfishX, blackfishY))
-    game_display.blit(bg, (0, 0))
+    game_display.blit(bg, (100, 100))
 
-    gameBoard0 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
 
 
     gameBoard1 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -43,7 +43,7 @@ def redrawGameWindow():
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
-def drawOnLayer(tileSet):
+def drawOnLayer():
     startX, startY = 0, 0
     for i in tileSet:
         if i == 0:
