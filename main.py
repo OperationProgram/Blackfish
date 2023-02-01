@@ -78,7 +78,7 @@ while run:
     elif keys[pygame.K_d]:
         blackfishX += velocity
     elif keys[pygame.K_w]:
-        blackfishY -= velocity ##
+        blackfishY -= velocity 
     elif keys[pygame.K_s]:
         blackfishY += velocity
     pygame.display.update()
