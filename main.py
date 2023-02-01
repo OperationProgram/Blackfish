@@ -1,5 +1,5 @@
 # Simple pygame program
-#TEST2222
+
 
 # Import and initialize the pygame library
 import pygame
@@ -27,7 +27,7 @@ tileSet = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 def redrawGameWindow():
-# COMMENTSddddddddd
+
 
     game_display.blit(blackfish, (blackfishX, blackfishY))
 
@@ -58,6 +58,7 @@ def drawOnLayer():
     for i in tileSet[tile]:
         if i == 0:
             game_display.blit(grass,(startX, startY))
+        startX += 64
 
 
 
