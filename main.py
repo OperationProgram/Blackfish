@@ -1,73 +1,61 @@
 # Simple pygame program
-#TEST2222
 
 # Import and initialize the pygame library
 import pygame
-######
+
 
 pygame.init()
 
 
-game_display = pygame.display.set_mode((800, 600))
+game_display = pygame.display.set_mode((640, 640))
 blackfish = pygame.image.load('art/blackfish.png')
-bg = pygame.image.load('art/tiles/brick.png')
+brick = pygame.image.load('art/tiles/brick.png')
 crate = pygame.image.load('art/tiles/crate.png')
 grass = pygame.image.load(('art/tiles/grass.png'))
 
 blackfishX = 0
 blackfishY = 0
-tileSet = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+tileSet = [   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 2, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [2, 0, 0, 0, 0, 0, 0, 0, 0, 2]]
+
+##### Changes only made to this function. ################
+# You can change each block to whatever image you want in the tileSet matrix above.              
+
 def redrawGameWindow():
-# COMMENTSddddddddd
+
+    startX, startY = 0, 0
+    for row in tileSet:
+        for square in row:
+
+            if square == 0:
+                game_display.blit(grass, (startX, startY))
+
+            elif square == 1:
+                game_display.blit(crate, (startX, startY))
+            
+            elif square == 2:
+                game_display.blit(brick, (startX, startY))
+
+            startX += 64
+
+        startY += 64
+        startX = 0
 
     game_display.blit(blackfish, (blackfishX, blackfishY))
-
-    startX, startY = 0, 0
-    for i in tileSet:
-        print('hi)')
-        print(i)
-        if i == 0:
-            print(i)
-            game_display.blit(grass, (startX, startY))
-    else:
-        game_display.blit(bg, (100, 100))
-
-    gameBoard1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-def drawOnLayer():
-    startX, startY = 0, 0
-    tile = 0
-    for i in tileSet[tile]:
-        if i == 0:
-            game_display.blit(grass,(startX, startY))
-
-
-
-# Set up the drawing window
 
 
 
 # Run until the user asks to quit
 velocity = 4
-FPS = 60 ##TESTr 222
+FPS = 60
 clock = pygame.time.Clock()
 run = True
 while run:
@@ -81,8 +69,8 @@ while run:
 
     game_display.blit(crate, (0, 0))
     game_display.fill((0, 0, 0))
+    
     redrawGameWindow()
-    drawOnLayer()
     if keys[pygame.K_a]:
         blackfishX -= velocity
     elif keys[pygame.K_d]:
@@ -93,5 +81,5 @@ while run:
         blackfishY += velocity
     pygame.display.update()
 
-# Done! Time 2to quit.
+
 pygame.quit()
