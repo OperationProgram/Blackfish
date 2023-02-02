@@ -11,7 +11,7 @@ grid = SGridLayout()
 hero = BlackFish()
 
 
-# Run until the user asks to quit
+# Run until the user asks to quits
 FPS = 60
 clock = pygame.time.Clock()
 run = True
