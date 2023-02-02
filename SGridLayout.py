@@ -2,9 +2,18 @@ import pygame
 
 
 map_object = None
+
 class SGridLayout(object):
     
     def __init__(self):
+
+        self.map_object = map_object
+        self.game_display = pygame.display.set_mode((640, 640))
+        self.blackfish = pygame.image.load('art/blackfish.png')
+        self.brick = pygame.image.load('art/tiles/brick.png')
+        self.crate = pygame.image.load('art/tiles/crate.png')
+        self.grass = pygame.image.load(('art/tiles/grass.png'))
+
 
         self.bottom_left =  [[2, 2, 0, 0, 0, 0, 0, 0, 0, 0],
                              [2, 2, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -51,18 +60,14 @@ class SGridLayout(object):
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 
-        self.game_display = pygame.display.set_mode((640, 640))
-        self.blackfish = pygame.image.load('art/blackfish.png')
-        self.brick = pygame.image.load('art/tiles/brick.png')
-        self.crate = pygame.image.load('art/tiles/crate.png')
-        self.grass = pygame.image.load(('art/tiles/grass.png'))
+        
 
 
-    def get_map(self):
+    def get_map():
         global map_object
     
         if map_object is None:
-            map_object = ()
+            map_object = SGridLayout()
 
         return map_object
 
@@ -86,6 +91,6 @@ class SGridLayout(object):
             startY += 64
             startX = 0
 
-        # self.game_display.blit(self.blackfish, (self.blackfishX, self.blackfishY))
+        
 
         
