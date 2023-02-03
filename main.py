@@ -2,9 +2,12 @@
 
 # Import and initialize the pygame library
 import pygame
+from SGridLayout import SGridLayout
+from Players import BlackFish
 
 
 pygame.init()
+<<<<<<< HEAD
 
 
 game_display = pygame.display.set_mode((640, 640))
@@ -53,10 +56,13 @@ def redrawGameWindow():
 
 # Set up the drawing window
 
+=======
+grid = SGridLayout()
+hero = BlackFish()
+>>>>>>> 819da642cadd4e13822ef23ea6143a9e82fc0b60
 
 
 # Run until the user asks to quit
-velocity = 4
 FPS = 60
 clock = pygame.time.Clock()
 run = True
@@ -67,20 +73,11 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-    keys = pygame.key.get_pressed()
 
-    game_display.blit(crate, (0, 0))
-    game_display.fill((0, 0, 0))
     
-    redrawGameWindow()
-    if keys[pygame.K_a]:
-        blackfishX -= velocity
-    elif keys[pygame.K_d]:
-        blackfishX += velocity
-    elif keys[pygame.K_w]:
-        blackfishY -= velocity 
-    elif keys[pygame.K_s]:
-        blackfishY += velocity
+    grid.redrawGameWindow(grid.top_left)
+    hero.draw()
+    
     pygame.display.update()
 
 
