@@ -24,7 +24,17 @@ while run:
 
 
     
-    grid.redrawGameWindow(grid.top_left)
+    print(hero.get_tile() )
+    
+    if ( hero.get_tile()[0] >= grid.bottom_left_doorRight[0]-1 and \
+         hero.get_tile()[1] >= grid.bottom_left_doorRight[1]-1 and \
+         hero.get_tile()[1] <= grid.bottom_left_doorRight[1]):
+        
+        grid.redrawGameWindow(grid.bottom_right)
+        # hero.posX = 0
+        # hero.posY = 0
+    else:
+        grid.redrawGameWindow(grid.bottom_left)    
     hero.draw()
     
     pygame.display.update()

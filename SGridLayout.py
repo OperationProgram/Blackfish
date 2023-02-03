@@ -13,29 +13,40 @@ class SGridLayout(object):
         self.brick = pygame.image.load('art/tiles/brick.png')
         self.crate = pygame.image.load('art/tiles/crate.png')
         self.grass = pygame.image.load(('art/tiles/grass.png'))
+        self.tile_size = 64
 
+        DEFAULT_GRID_WIDTH = 10
+        DEFAULT_GRID_HEIGHT = 10
 
-        self.bottom_left =  [[2, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        self.bottom_left =  [[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                              [2, 2, 0, 0, 0, 0, 0, 0, 0, 0],
-                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+                             [2, 2, 0, 0, 0, 0, 0, 0, 0, 0]]
+        
+        # self.bottom_left_doorRight_upper = (DEFAULT_GRID_WIDTH - 1, self.tile_size *  DEFAULT_GRID_HEIGHT / 2)
+        # self.bottom_left_doorRight_lower = (DEFAULT_GRID_WIDTH - 1, (self.tile_size * DEFAULT_GRID_HEIGHT / 2) + self.tile_size)
+        # self.bottom_left_doorTop = self.bottom_left[0][DEFAULT_GRID_WIDTH / 2]
+        self.bottom_left_doorRight = (DEFAULT_GRID_WIDTH - 1, DEFAULT_GRID_HEIGHT / 2)
+        print(self.bottom_left_doorRight)
 
-        self.bottom_right =  [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        self.bottom_right = [[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                             [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 0, 0, 0, 2, 2],
                              [0, 0, 0, 0, 0, 0, 0, 0, 2, 2]]
+        # self.bottom_right_doorLeft_upper = (0, self.tile_size * DEFAULT_GRID_HEIGHT / 2)
+        # self.bottom_right_doorLeft_lower = self.bottom_left(0, (self.tile_size * DEFAULT_GRID_HEIGHT / 2) + self.tile_size)
         
         self.top_left =     [[2, 2, 0, 0, 0, 0, 0, 0, 0, 0],
                              [2, 2, 0, 0, 0, 0, 0, 0, 0, 0],

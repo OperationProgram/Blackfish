@@ -9,6 +9,11 @@ class BlackFish(object):
         self.posY = 0
         self.velocity = 4
 
+    def get_tile(self):
+        x_tile = self.posX // 64
+        y_tile = self.posY // 64
+
+        return (x_tile, y_tile)
     def draw(self):
     
         keys = pygame.key.get_pressed()
