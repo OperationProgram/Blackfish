@@ -7,7 +7,7 @@ from Players import BlackFish
 
 
 pygame.init()
-<<<<<<< HEAD
+
 
 
 game_display = pygame.display.set_mode((640, 640))
@@ -15,7 +15,7 @@ blackfish = pygame.image.load('art/blackfish.png')
 brick = pygame.image.load('art/tiles/brick.png')
 crate = pygame.image.load('art/tiles/crate.png')
 grass = pygame.image.load(('art/tiles/grass.png'))
-########121212
+
 blackfishX = 0
 blackfishY = 0
 tileSet = [   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -56,10 +56,10 @@ def redrawGameWindow():
 
 # Set up the drawing window
 
-=======
+
 grid = SGridLayout()
 hero = BlackFish()
->>>>>>> 819da642cadd4e13822ef23ea6143a9e82fc0b60
+
 
 
 # Run until the user asks to quit

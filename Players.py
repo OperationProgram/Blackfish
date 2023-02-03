@@ -24,5 +24,7 @@ class BlackFish(object):
         elif keys[pygame.K_s]:
             self.posY += self.velocity
 
+    def move(self):
+
 
         
