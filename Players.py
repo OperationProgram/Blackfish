@@ -30,4 +30,4 @@ class BlackFish(object):
             self.posY += self.velocity
 
 
-        
+
