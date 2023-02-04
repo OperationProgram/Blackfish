@@ -34,4 +34,4 @@ class BlackFish(object):
             self.rect.y += self.velocity
 
 
-        
+
