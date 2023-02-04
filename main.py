@@ -2,13 +2,24 @@
 
 # Import and initialize the pygame library
 import pygame
-from SGridLayout import SGridLayout
+from SWorld import SWorld, TileSet
 from Players import BlackFish
 
-
 pygame.init()
-grid = SGridLayout()
-hero = BlackFish()
+world = SWorld()
+
+# Tilesets for each area of map
+top_left     = TileSet(world.top_left, world.top_left_doors)
+top_right    = TileSet(world.top_right, world.top_right_doors)
+bottom_left  = TileSet(world.bottom_left, world.bottom_left_doors)
+bottom_right = TileSet(world.bottom_right, world.bottom_right_doors)
+
+
+
+blackfish = BlackFish()
+curr_tileSet = bottom_left
+bottom_left.active = True
+
 
 
 # Run until the user asks to quits
@@ -23,21 +34,65 @@ while run:
             run = False
 
 
-    
-    print(hero.get_tile() )
-    
-    if ( hero.get_tile()[0] >= grid.bottom_left_doorRight[0]-1 and \
-         hero.get_tile()[1] >= grid.bottom_left_doorRight[1]-1 and \
-         hero.get_tile()[1] <= grid.bottom_left_doorRight[1]):
+
+############ LET THE MESS BEGIN - PLZ refactor ############################
+
+
+
+    if top_left.active:
+
+        if top_left.at_door(blackfish) == "right":
+            top_right.active = True
+            curr_tileSet = top_right
+            top_left.active = False
+
+        if top_left.at_door(blackfish) == "bot":
+            bottom_left.active = True
+            curr_tileSet = bottom_left
+            top_left.active = False
+
+    if top_right.active:
+
+        if top_right.at_door(blackfish) == "bot":
+            bottom_right.active = True
+            curr_tileSet = bottom_right
+            top_right.active = False
+
+        if top_right.at_door(blackfish) == "left":
+            top_left.active = True
+            curr_tileSet = top_left
+            top_right.active = False
+
+    if bottom_left.active:
+
+        if bottom_left.at_door(blackfish) == "top":
+            top_left.active = True
+            curr_tileSet = top_left
+            bottom_left.active = False
+
+        if bottom_left.at_door(blackfish) == "right":
+            bottom_right.active = True
+            curr_tileSet = bottom_right
+            bottom_left.active = False
+
+    if bottom_right.active:
+
+        if bottom_right.at_door(blackfish) == "top":
+            curr_tileSet = top_right
+            top_right.active = True
+            bottom_right.active = False
+
+        if bottom_right.at_door(blackfish) == "left":
+            curr_tileSet = bottom_left
+            bottom_left.active = True
+            bottom_right.active = False
         
-        grid.redrawGameWindow(grid.bottom_right)
-        # hero.posX = 0
-        # hero.posY = 0
-    else:
-        grid.redrawGameWindow(grid.bottom_left)    
-    hero.draw()
+        
+    
+    curr_tileSet.drawTileSet()   
+    blackfish.draw()
     
     pygame.display.update()
 
-
+    
 pygame.quit()

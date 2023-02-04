@@ -1,17 +1,21 @@
-from SGridLayout import SGridLayout
+from SWorld import SWorld
 import pygame
+
 
 class BlackFish(object):
 
     def __init__(self):
-        self.gridLayout = SGridLayout.get_map()
-        self.posX = 0
-        self.posY = 0
+        self.world = SWorld.get_world()
+        self.blackfish = pygame.image.load('art/blackfish.png')
+        # self.rect = self.blackfish.get_rect()
+        self.rect = pygame.Rect(0,0,32,32)
         self.velocity = 4
 
+
+    
     def get_tile(self):
-        x_tile = self.posX // 64
-        y_tile = self.posY // 64
+        x_tile = self.self.rect.x // 64
+        y_tile = self.self.rect.y // 64
 
         return (x_tile, y_tile)
     def draw(self):
@@ -19,15 +23,15 @@ class BlackFish(object):
         keys = pygame.key.get_pressed()
 
         
-        self.gridLayout.game_display.blit(self.gridLayout.blackfish, (self.posX, self.posY))
+        self.world.game_display.blit(self.blackfish, (self.rect.x, self.rect.y))
         if keys[pygame.K_a]:
-            self.posX -= self.velocity
+            self.rect.x -= self.velocity
         elif keys[pygame.K_d]:
-            self.posX += self.velocity
+            self.rect.x += self.velocity
         elif keys[pygame.K_w]:
-            self.posY -= self.velocity 
+            self.rect.y -= self.velocity 
         elif keys[pygame.K_s]:
-            self.posY += self.velocity
+            self.rect.y += self.velocity
 
 
         
