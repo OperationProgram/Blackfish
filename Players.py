@@ -7,8 +7,8 @@ class BlackFish(object):
     def __init__(self):
         self.world = SWorld.get_world()
         self.blackfish = pygame.image.load('art/blackfish.png')
-        # self.rect = self.blackfish.get_rect()
-        self.rect = pygame.Rect(0,0,32,32)
+        self.rect = self.blackfish.get_rect()
+        # self.rect = pygame.Rect(0,0,32,32)
         self.velocity = 4
 
 
@@ -18,6 +18,7 @@ class BlackFish(object):
         y_tile = self.self.rect.y // 64
 
         return (x_tile, y_tile)
+    
     def draw(self):
     
         keys = pygame.key.get_pressed()
