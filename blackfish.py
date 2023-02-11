@@ -8,15 +8,22 @@ class Blackfish():
         self.worldLayout = World.get_map()
 
         # Graphics
-        self.blackfish = pygame.image.load('art/Blackfish_v0_32x32.png')
-        self.flip_blackfish = pygame.transform.flip(self.blackfish, True, False)
-        self.scale_blackfish = pygame. transform. scale(self.blackfish, (222, 12))
+        self.blackfish_image = pygame.image.load('art/characters/standing.png')              # Main character picture.
+        self.flip_blackfish = pygame.transform.flip(self.blackfish_image, True, False)
+        self.scale_blackfish = pygame.transform.scale(self.blackfish_image, (64, 64))
+
+        # Movement Animations & Images.
+        self.standing = pygame.image.load('art/characters/standing.png')
+        self.walkLeft = pygame.image.load('art/characters/walkRight_0.png')
+        self.walkRight = []
+        self.walkUp = []
+        self.walkDown = []
 
         # Movement
         self.posX = 0
         self.posY = 0
         self.velocity = 4
-        self.rect = self.blackfish.get_rect()
+        self.rect = self.blackfish_image.get_rect()
         self.player_rectX = self.rect[0]
         self.player_rectY = self.rect[1]
 
@@ -35,26 +42,36 @@ class Blackfish():
 
         return x_tile, y_tile
 
+    def resizeImage(self, image):
+        return self.worldLayout.game_display.blit(self.walkLeft, (self.posX, self.posY))
+
     def draw(self):
-        print('CODE:', self.isMoving)
+
         if self.isMoving:
             if self.moveRight:
-                self.worldLayout.game_display.blit(self.blackfish, (self.posX, self.posY))
+                self.worldLayout.game_display.blit(self.blackfish_image, (self.posX, self.posY))
                 self.moveRight = True
 
             elif self.moveLeft:
-
+                self.worldLayout.game_display.blit(self.walkLeft, (self.posX, self.posY))
                 self.moveLeft = True
 
             elif self.moveUp:
-                self.worldLayout.game_display.blit(self.blackfish, (self.posX, self.posY))
+                self.worldLayout.game_display.blit(self.blackfish_image, (self.posX, self.posY))
 
             elif self.moveDown:
-                self.worldLayout.game_display.blit(self.blackfish, (self.posX, self.posY))
+
+
+                self.worldLayout.game_display.blit(self.blackfish_image, (self.posX, self.posY))
 
         else:
             self.isMoving = False
-            self.worldLayout.game_display.blit(self.blackfish, (self.posX, self.posY))
+
+            # Standing
+            self.worldLayout.game_display.blit(pygame.transform.scale(self.walkLeft, (64, 64)), (self.posX, self.posY))
+
+
+
 
 
     def move(self):
