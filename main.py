@@ -3,7 +3,7 @@
 # Import and initialize the pygame library
 import pygame
 from SWorld import SWorld, TileSet
-from Players import BlackFish
+from Characters import BlackFish
 
 pygame.init()
 world = SWorld()
