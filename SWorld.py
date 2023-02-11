@@ -1,6 +1,6 @@
 import pygame
 # from Players import BlackFish
-from Tiles import Door
+from Tiles import Door, Crate
 
 world_object = None
 
@@ -11,7 +11,7 @@ class SWorld(object):
 
         DEFAULT_GRID_WIDTH = 10
         DEFAULT_GRID_HEIGHT = 10
-
+        
         self.game_display = pygame.display.set_mode((640, 640))
         self.tile_size = 64
         self.bottom_left =   [[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
@@ -25,8 +25,6 @@ class SWorld(object):
                               [2, 2, 0, 0, 0, 0, 0, 0, 0, 0],
                               [2, 2, 0, 0, 0, 0, 0, 0, 0, 0]]
         
-        # self.bottom_left_doors = [Door(DEFAULT_GRID_WIDTH / 2, 0, "top"),
-        #                           Door(DEFAULT_GRID_WIDTH - 1, DEFAULT_GRID_HEIGHT / 2, "right")]
         self.bottom_left_doors = {"top":   Door(DEFAULT_GRID_WIDTH / 2, 0),
                                   "right": Door(DEFAULT_GRID_WIDTH - 1, DEFAULT_GRID_HEIGHT / 2)}                                  
         
@@ -77,8 +75,7 @@ class SWorld(object):
                                  "left": Door(0, DEFAULT_GRID_HEIGHT / 2)
                                }
         
-        
-        
+          
     def get_world():
         global world_object
     
@@ -135,11 +132,3 @@ class TileSet(object):
     
                     
 
-if __name__ == "__main__":
-    ppl = { "bob": 7,
-            "steve": 9}
-    
-    def printDict(**kwargs):
-        print(kwargs["bob"])
-
-    printDict(**ppl)
