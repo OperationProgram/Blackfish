@@ -3,7 +3,7 @@
 # Import and initialize the pygame library
 import pygame
 from SWorld import SWorld, TileSet
-from Characters import BlackFish
+from Characters import Blackfish
 
 pygame.init()
 world = SWorld()
@@ -15,17 +15,17 @@ bottom_left  = TileSet(world.bottom_left, **world.bottom_left_doors)
 bottom_right = TileSet(world.bottom_right, **world.bottom_right_doors)
 
 
-
-blackfish = BlackFish()
+blackfish = Blackfish()
 curr_tileSet = bottom_left
 bottom_left.active = True
 
 
-# Run until the user asks to quits
+# Run until the user asks to quits.
 FPS = 60
 clock = pygame.time.Clock()
 run = True
 while run:
+    # Game clock.
     clock.tick(FPS)
 
     for event in pygame.event.get():
@@ -90,6 +90,7 @@ while run:
         
     
     curr_tileSet.drawTileSet()   
+    blackfish.move()
     blackfish.draw()
     
     pygame.display.update()
