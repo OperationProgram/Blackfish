@@ -21,7 +21,6 @@ curr_tileSet = bottom_left
 bottom_left.active = True
 
 
-
 # Run until the user asks to quits
 FPS = 60
 clock = pygame.time.Clock()
@@ -32,7 +31,6 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-
 
 
 ############ LET THE MESS BEGIN - PLZ refactor #############################
