@@ -3,7 +3,7 @@
 # Import and initialize the pygame library
 import pygame
 from SWorld import World
-from character import Blackfish
+from Characters import Blackfish
 
 # Initalize pygame.
 pygame.init()
