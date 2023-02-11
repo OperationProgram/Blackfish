@@ -2,20 +2,23 @@
 
 # Import and initialize the pygame library
 import pygame
-from SGridLayout import SGridLayout
-from Players import BlackFish
+from world import World
+from blackfish import Blackfish
 
-
+# Initalize pygame.
 pygame.init()
-grid = SGridLayout()
-hero = BlackFish()
+
+# Class Calls
+world = World()
+blackfish = Blackfish()
 
 
-# Run until the user asks to quits
+# Run until the user asks to quits.
 FPS = 60
 clock = pygame.time.Clock()
 run = True
 while run:
+    # Game clock.
     clock.tick(FPS)
 
     for event in pygame.event.get():
@@ -23,19 +26,17 @@ while run:
             run = False
 
 
-    
-    print(hero.get_tile() )
-    
-    if ( hero.get_tile()[0] >= grid.bottom_left_doorRight[0]-1 and \
-         hero.get_tile()[1] >= grid.bottom_left_doorRight[1]-1 and \
-         hero.get_tile()[1] <= grid.bottom_left_doorRight[1]):
-        
-        grid.redrawGameWindow(grid.bottom_right)
-        # hero.posX = 0
-        # hero.posY = 0
-    else:
-        grid.redrawGameWindow(grid.bottom_left)    
-    hero.draw()
+
+
+    world.redrawGameWindow(world.level_0)
+
+    blackfish.move()
+    blackfish.draw()
+
+
+    # Draw world grids.
+    blackfish.update_player_pos()
+
     
     pygame.display.update()
 
