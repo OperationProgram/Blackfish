@@ -7,3 +7,4 @@ class NPC():
     def draw(self):
         self.gridLayout.game_display.blit(pygame.transform.flip(self.blackfish, True, False), (self.posX, self.posY))
         self.g
+        ###
