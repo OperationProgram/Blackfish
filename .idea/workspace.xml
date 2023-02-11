@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6daa614-1404-4d53-b766-ce93cc56f394" name="Changes" comment="Attempt to &quot;Merge Conflicts&quot;">
+      <change afterPath="$PROJECT_DIR$/art/character/left/walkLeft_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/art/character/right/walkRight_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/art/character/up/walkUp_0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art/Blackfish_v0_32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/art/snakeLeft.lnk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blackfish.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackfish.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world.py" beforeDir="false" afterPath="$PROJECT_DIR$/world.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NPC.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Players.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGridLayout.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/art/characters/standing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/art/characters/walkRight_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/art/snakeNorth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/art/snakeSouth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackfish.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/world.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,13 +40,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/18328/PycharmProjects/Blackfish&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/18328/PycharmProjects/Blackfish/art"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.main">
     <configuration name="Players" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Blackfish" />

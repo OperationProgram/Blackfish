@@ -2,8 +2,8 @@
 
 # Import and initialize the pygame library
 import pygame
-from world import World
-from blackfish import Blackfish
+from SWorld import World
+from character import Blackfish
 
 # Initalize pygame.
 pygame.init()
@@ -34,8 +34,7 @@ while run:
     blackfish.draw()
 
 
-    # Draw world grids.
-    blackfish.update_player_pos()
+
 
     
     pygame.display.update()
