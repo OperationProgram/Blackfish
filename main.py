@@ -14,7 +14,6 @@ bottom_right = TileSet(world.bottom_right, "bottom_right", **world.bottom_right_
 top_left     = TileSet(world.top_left, "top_left", **world.top_left_doors)
 top_right    = TileSet(world.top_right, "top_right", **world.top_right_doors)
 
-
 WorldGraph = { 
     bottom_left   : [bottom_right, top_left],  
     top_left      : [top_right, bottom_left],
@@ -24,16 +23,16 @@ WorldGraph = {
 
 blackfish = Blackfish()
 
+# Still not using graphing really. Shouldn't need this function at all. Look at line 57.
 def change_tileSet(door):
 
-    if door in curr_tileSet.doors.keys():
-        next_tileSet_name = curr_tileSet.doors[door].portal_to
-        for tileSet in WorldGraph.keys():
-            if tileSet.name == next_tileSet_name:
-                curr_tileSet.active = False
-                tileSet.active = True
+    next_tileSet_name = curr_tileSet.doors[door].portal_to
+    for tileSet in WorldGraph.keys():
+        if tileSet.name == next_tileSet_name:
+            curr_tileSet.active = False
+            tileSet.active = True
 
-                return tileSet
+            return tileSet
 
 
 bottom_left.active = True
@@ -52,11 +51,10 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-############ LET THE MESS BEGIN - PLZ refactor #############################
-
-
+# Check for door collision
     if top_left.active:
         if top_left.at_door(blackfish) == "right":
+            # curr_tileSet = curr_tileSet[top_left][0]  This actually is all you need 
             curr_tileSet = change_tileSet("right")
 
         if top_left.at_door(blackfish) == "bot":
