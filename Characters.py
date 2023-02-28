@@ -36,8 +36,8 @@ class Blackfish():
         self.moveDown = False
 
     def get_tile(self):
-        x_tile = self.self.rect.x // 64
-        y_tile = self.self.rect.y // 64
+        x_tile = self.rect.x // 64
+        y_tile = self.rect.y // 64
 
         return (x_tile, y_tile)
     def draw(self):
@@ -48,29 +48,31 @@ class Blackfish():
 
             if self.moveLeft:
                 self.worldLayout.game_display.blit(pygame.transform.scale(self.walkLeft,
-                                                                          (self.player_scaleX, self.player_scaleY)), (self.rect.x, self.rect.y))
+                                                                         (self.player_scaleX, self.player_scaleY)), 
+                                                                         (self.rect.x, self.rect.y))
 
             elif self.moveRight:
                 self.worldLayout.game_display.blit(pygame.transform.scale(self.walkRight,
-                                                                          (self.player_scaleX, self.player_scaleY)), (self.rect.x, self.rect.y))
+                                                                         (self.player_scaleX, self.player_scaleY)),
+                                                                         (self.rect.x, self.rect.y))
 
             elif self.moveUp:
                 self.worldLayout.game_display.blit(pygame.transform.scale(self.walkUp,
-                                                                          (self.player_scaleX, self.player_scaleY)),(self.rect.x, self.rect.y))
+                                                                         (self.player_scaleX, self.player_scaleY)),
+                                                                         (self.rect.x, self.rect.y))
 
             elif self.moveDown:
                 self.worldLayout.game_display.blit(pygame.transform.scale(self.walkDown,
-                                                                          (self.player_scaleX, self.player_scaleY)), (self.rect.x, self.rect.y))
+                                                                         (self.player_scaleX, self.player_scaleY)), 
+                                                                         (self.rect.x, self.rect.y))
 
         else:
             self.isMoving = False
 
             # Standing
             self.worldLayout.game_display.blit(pygame.transform.scale(self.standing,
-                                                                      (self.player_scaleX, self.player_scaleY)), (self.rect.x, self.rect.y))
-
-
-
+                                                                     (self.player_scaleX, self.player_scaleY)), 
+                                                                     (self.rect.x, self.rect.y))
 
 
     def move(self):
@@ -121,3 +123,13 @@ class Blackfish():
             self.moveRight = False
             self.moveUp = False
             self.moveDown = False
+
+    def get_collide(self, obj):
+        # for direction, door in self.doors.items():
+        if (pygame.Rect.colliderect(obj.rect, self.rect)):
+            return True
+            
+         
+    
+        
+

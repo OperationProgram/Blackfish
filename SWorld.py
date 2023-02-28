@@ -25,8 +25,9 @@ class SWorld(object):
                               [2, 2, 0, 0, 0, 0, 0, 0, 0, 0],
                               [2, 2, 0, 0, 0, 0, 0, 0, 0, 0]]
         
-        self.bottom_left_doors = {"top":   Door(DEFAULT_GRID_WIDTH / 2, 0),
-                                  "right": Door(DEFAULT_GRID_WIDTH - 1, DEFAULT_GRID_HEIGHT / 2)}                                  
+        self.bottom_left_doors = {"top":   Door(DEFAULT_GRID_WIDTH / 2, 0, "top_left"),
+                                  "right": Door(DEFAULT_GRID_WIDTH - 1, DEFAULT_GRID_HEIGHT / 2, "bottom_right")} 
+                                 
         
         self.bottom_right = [[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -39,8 +40,8 @@ class SWorld(object):
                              [0, 0, 0, 0, 0, 0, 0, 0, 2, 2],
                              [0, 0, 0, 0, 0, 0, 0, 0, 2, 2]]
         
-        self.bottom_right_doors = { "top":  Door(DEFAULT_GRID_WIDTH / 2, 0),
-                                    "left": Door(0, DEFAULT_GRID_HEIGHT / 2)
+        self.bottom_right_doors = { "top":  Door(DEFAULT_GRID_WIDTH / 2, 0, "top_right"),
+                                    "left": Door(0, DEFAULT_GRID_HEIGHT / 2, "bottom_left")
                                   }
         
         self.top_left  =    [[2, 2, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -54,8 +55,8 @@ class SWorld(object):
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]]
         
-        self.top_left_doors = { "right": Door(DEFAULT_GRID_WIDTH - 1, DEFAULT_GRID_HEIGHT / 2),
-                                "bot"  : Door(DEFAULT_GRID_WIDTH / 2, DEFAULT_GRID_HEIGHT - 1)
+        self.top_left_doors = { "right": Door(DEFAULT_GRID_WIDTH - 1, DEFAULT_GRID_HEIGHT / 2, "top_right"),
+                                "bot"  : Door(DEFAULT_GRID_WIDTH / 2, DEFAULT_GRID_HEIGHT - 1, "bottom_left")
                               }
 
 
@@ -71,8 +72,8 @@ class SWorld(object):
                              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                              [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]]
         
-        self.top_right_doors = { "bot":  Door(DEFAULT_GRID_WIDTH / 2, DEFAULT_GRID_HEIGHT - 1),
-                                 "left": Door(0, DEFAULT_GRID_HEIGHT / 2)
+        self.top_right_doors = { "bot":  Door(DEFAULT_GRID_WIDTH / 2, DEFAULT_GRID_HEIGHT - 1, "bottom_right"),
+                                 "left": Door(0, DEFAULT_GRID_HEIGHT / 2, "top_left")
                                }
         
           
@@ -87,16 +88,12 @@ class SWorld(object):
 
 class TileSet(object):
     
-    def __init__(self, grid, **doors):
-        
-
+    def __init__(self, grid, name, **doors):
+        self.name = name
         self.world = SWorld.get_world()
         self.grid = grid
         self.doors = doors
-        self.world = SWorld.get_world()
-        print(doors)
-        self.brick = pygame.image.load('art/tiles/brick.png')
-        
+        self.brick = pygame.image.load('art/tiles/brick.png') 
         self.grass = pygame.image.load(('art/tiles/grass.png'))
 
         self.active = False
@@ -127,7 +124,13 @@ class TileSet(object):
                 startX += self.tile_size
 
             startY += self.tile_size
+
             startX = 0
+
+
+
+
+
 
     
                     
